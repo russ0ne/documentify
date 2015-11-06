@@ -17,19 +17,55 @@ a, a:visited {
   color: #0000FF;
 }
 /* Layout */
-#header, #body {
+#header, #body, .padded {
   padding: 8px;
 }
 #header {
   background-color: #EEFFDD;
 }
-#header {
+#messages {
+  background-color: #DDEECC;
+}
+#header, #messages {
   border-bottom: 2px solid #EECCAA;
+}
+#panel {
+  position: relative;
+  min-height: 100%;
+}
+#folders {
+  float: left;
+  padding-right: 8px;
+}
+#main {
+  float: left;
+  width: 60%;
+}
+.clear {
+  clear: both;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #EEFFDD;
+  border-top: 2px solid #EECCAA;
 }
 span.title {
   color: #770000;
   font-size: large;
   font-weight: bold;
+}
+span.menu {
+  margin-left: 12px;
+}
+span.currentSection {
+  color: #FFFFFF;
+  background-color: #007700;
+}
+span.currentSection, a.sectionLink {
+  padding: 0 8px;
 }
 /* Tables */
 table {
@@ -79,6 +115,10 @@ table.form td {
   color: #004499;
   border: none;
   padding: 4px;
+  text-align: right;
+}
+table.form td.error {
+  text-align: left;
 }
 input, textarea {
   background-color: #F5F5FF;
@@ -93,27 +133,10 @@ input[type="button"], input[type="submit"] {
   font-family: "Luxi Sans", sans-serif;
 }
 /* Message display */
-div.messages {
-  display: block;
-  border: 2px solid #008800;
-  margin-bottom: 8px;
-  background-color: #CCFFCC;
-}
-div.messages p {
+span.message {
   font-weight: bold;
   color: #008800;
-  margin: 0;
-}
-div.errors{
-    display: block;
-    border: 2px solid #880000;
-    margin-bottom: 8px;
-    background-color: #FFDDDD;
-}
-div.errors p{
-    font-weight: bold;
-    color: #880000;
-    margin: 0;
+  padding: 8px;
 }
 span.error {
   font-weight: bold;

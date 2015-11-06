@@ -1,6 +1,7 @@
 <%-- 
     Document   : layout_main
     Created on : 03-Nov-2015, 17:06:05
+    Updated on : 06-Nov-2015
     Author     : Russ
 --%>
 
@@ -18,10 +19,16 @@
         <body>
             <div id="header">
                 <span class="title">${title}</span>
+                <span class="menu">
+                    <s:layout-component name="menu">
+                        Welcome to Documentify
+                    </s:layout-component>
+                </span>
             </div>
+            <s:messages/>
             <div id="body">
-                <s:layout-component name="body"></s:layout-component>
-                </div>
-            </body>
-        </html>
+                <s:layout-component name="body"/>
+            </div>
+        </body>
+    </html>
 </s:layout-definition>

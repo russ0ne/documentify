@@ -1,12 +1,13 @@
 <%-- 
     Document   : request_list
     Created on : 03-Nov-2015, 17:18:23
+    Updated on : 06-Nov-2015
     Author     : Russ
 --%>
 <%@include file="common/taglibs.jsp" %>
-<s:layout-render name="/WEB-INF/jsp/common/layout_main.jsp" title="Request List">
+<s:layout-render name="/WEB-INF/jsp/common/layout_menu.jsp"
+  title="Request List" currentSection="RequestList">
     <s:layout-component name="body">
-        <s:messages/>
         <s:link beanclass="documentify.action.RequestFormActionBean">
             Create a New Request
         </s:link>
