@@ -155,3 +155,25 @@ label.error {
 input.required {
   border-width: 2px;
 }
+div.messages{
+    display: block;
+    border: 2px solid #008800;
+    margin-bottom: 8px;
+    background-color: #CCFFCC;
+}
+div.messages p{
+    font-weight: bold;
+    color: #008800;
+    margin: 0;
+}
+div.errors{
+    display: block;
+    border: 2px solid #880000;
+    margin-bottom: 8px;
+    background-color: #FFDDDD;
+}
+div.errors p{
+    font-weight: bold;
+    color: #880000;
+    margin: 0;
+}

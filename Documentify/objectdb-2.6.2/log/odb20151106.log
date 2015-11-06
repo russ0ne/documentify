@@ -51,3 +51,62 @@ Database 'C:\Users\Russ\Desktop\documentify\documentify\Documentify\objectdb-2.6
 [2015-11-06 16:04:26 #17 store] 
 Database 'C:\Users\Russ\Desktop\documentify\documentify\Documentify\objectdb-2.6.2\db\documentify.odb' is closed by 6320@RUSS-WIN8
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2015-11-06 17:30:18 #1 explorer] 
+[ObjectDB 2.6.2] javax.persistence.PersistenceException
+Failed to connect to server localhost:6136 (Connection refused: connect) (error 522)
+	at com.objectdb.Explorer$1.run(Explorer.java:57)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+Caused by: com.objectdb.o.UserException: Failed to connect to server localhost:6136 (Connection refused: connect)
+	at com.objectdb.o.MSG.d(MSG.java:75)
+	at com.objectdb.o.CLS.M(CLS.java:154)
+	at com.objectdb.o.CST.<init>(CST.java:67)
+	at com.objectdb.o.CSF.UP(CSF.java:88)
+	at com.objectdb.o.OMF.ao(OMF.java:775)
+	at com.objectdb.jpa.EMF.ao(EMF.java:238)
+	at com.objectdb.o.OMF.an(OMF.java:690)
+	at com.objectdb.jpa.EMF.createEntityManager(EMF.java:257)
+	... 17 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at com.objectdb.o.CLS.M(CLS.java:122)
+	... 23 more
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2015-11-06 17:30:22 #1 server] 
+Server on port 6136 has started by 4356@RUSS-WIN8
+
+[2015-11-06 17:30:42 #2 store] 
+Database 'C:\Users\Russ\Desktop\documentify\documentify\Documentify\objectdb-2.6.2\db\documentify.odb' is opened by 4356@RUSS-WIN8
+
+[2015-11-06 17:37:24 #3 store] 
+Database 'C:\Users\Russ\Desktop\documentify\documentify\Documentify\objectdb-2.6.2\db\documentify.odb' is closed by 4356@RUSS-WIN8
+
+[2015-11-06 17:37:27 #4 store] 
+Database 'C:\Users\Russ\Desktop\documentify\documentify\Documentify\objectdb-2.6.2\db\documentify.odb' is opened by 4356@RUSS-WIN8
+
+[2015-11-06 17:54:24 #5 store] 
+Database 'C:\Users\Russ\Desktop\documentify\documentify\Documentify\objectdb-2.6.2\db\documentify.odb' is closed by 4356@RUSS-WIN8
+
