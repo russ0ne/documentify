@@ -12,6 +12,7 @@ import org.stripesstuff.stripersist.Stripersist;
 public abstract class RequestBaseActionBean extends BaseActionBean {
 
     // this is only used when there is a completely empty database
+    // otherwise we get: java.lang.ClassNotFoundException
     /*static {
         Stripersist.getEntityManager().getMetamodel().entity(Request.class);
     }*/

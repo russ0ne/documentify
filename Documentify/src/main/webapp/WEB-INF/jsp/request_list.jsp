@@ -1,7 +1,6 @@
 <%-- 
     Document   : request_list
-    Created on : 03-Nov-2015, 17:18:23
-    Updated on : 06-Nov-2015
+    Created on : 03-Nov-2015
     Author     : Russ
 --%>
 <%@include file="common/taglibs.jsp" %>
@@ -14,12 +13,15 @@
             <p></p>
         <d:table name="${actionBean.requests}" id="aRequest" requestURI="" defaultsort="1">
             <d:column title="Request ID" property="id" sortable="true"/>
+            <d:column title="Request Title" property="requestTitle" sortable="true" maxLength="100"/>
             <d:column title="Project Name" property="project" sortable="true"/>
             <d:column title="Date Requested" property="dateOfRequest" sortable="true" format="{0,date,dd/MM/yyyy}"/>
             <d:column title="Points Available" property="pointsWorth" sortable="true"/>
+            <d:column title="Due Date" property="reviewDate" sortable="true" format="{0,date,dd/MM/yyyy}"/>
+            <d:column title="Status" property="status" sortable="true"/>
             <d:column title="Actions">
                 <s:link beanclass="documentify.action.RequestListActionBean" event="view">
-                    <s:param name="request" value="${aRequest}"/>View
+                    <s:param name="request" value="${aRequest}"/>View Details
                 </s:link> |
                 <s:link beanclass="documentify.action.RequestFormActionBean">
                     <s:param name="request" value="${aRequest}"/>Update

@@ -43,11 +43,10 @@ public class RequestFormActionBean extends RequestBaseActionBean {
     }
     
     @ValidateNestedProperties({
-        @Validate(field = "project", required = true, on = "save"),
-        @Validate(field = "requester", required = true, on = "save"),
-        @Validate(field = "assignedPriority", required = true, on = "save"),
         @Validate(field = "dateOfRequest", required = true, expression = "${self <= today}", on = "save"),
-        @Validate(field = "pointsWorth", required = true, on = "save", minvalue = 1, maxvalue = 100)
+        @Validate(field = "reviewDate", required = true, expression = "${self >= today}", on = "save"),
+        @Validate(field = "pointsWorth", required = true, on = "save", minvalue = 1, maxvalue = 100),
+        @Validate(field = "requestTitle", required = true, on = "save"),
     })
     @Override
     public void setRequest(Request request){

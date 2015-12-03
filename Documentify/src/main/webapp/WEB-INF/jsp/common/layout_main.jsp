@@ -18,6 +18,7 @@
         </head>
         <body>
             <div id="header">
+                <div id="logo"><img src="images/documentify.png" alt="Documentify Logo" height="85.5" width="321.5"/></div><br />
                 <span class="title">${title}</span>
                 <span class="menu">
                     <s:layout-component name="menu">

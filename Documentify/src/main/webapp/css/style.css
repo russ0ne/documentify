@@ -57,6 +57,13 @@ span.title {
   font-size: large;
   font-weight: bold;
 }
+#logo{
+  position: absolute;
+    right: 0px;
+    width: 322px;
+    height: 100px;
+    padding: 10px;
+}
 span.menu {
   margin-left: 12px;
 }

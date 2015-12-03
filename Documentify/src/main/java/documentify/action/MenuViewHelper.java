@@ -33,7 +33,8 @@ public class MenuViewHelper extends BaseActionBean{
     public enum Section{
        
         RequestList("Request List", RequestListActionBean.class),
-        ProjectList("Project List", ProjectListActionBean.class);
+        ProjectList("Project List", ProjectListActionBean.class),
+        UserList("User List", UserListActionBean.class);
         
         private final String text, beanclass;
 
@@ -45,7 +46,7 @@ public class MenuViewHelper extends BaseActionBean{
         public String getText() {
             return text;
         }
-
+        
         public String getBeanclass() {
             return beanclass;
         }

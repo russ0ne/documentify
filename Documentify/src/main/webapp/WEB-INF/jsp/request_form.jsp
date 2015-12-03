@@ -19,6 +19,20 @@
                     <td>${empty actionBean.request.id ? "n/a" : actionBean.request.id}</td>
                 </tr>
                 <tr>
+                    <td><s:label for="request.requestTitle">:</s:label></td>
+                        <td>
+                        <s:text name="request.requestTitle"/>
+                    </td>
+                    <td><s:errors field="request.requestTitle"/></td>
+                </tr>
+                <tr>
+                    <td><s:label for="request.requestDesc">:</s:label></td>
+                        <td>
+                        <s:textarea name="request.requestDesc"/>
+                    </td>
+                    <td><s:errors field="request.requestDesc"/></td>
+                </tr>
+                <tr>
                     <td><s:label for="request.project">:</s:label></td>
                     <td><s:select name="request.project">
                             <%--<s:option value="">Select a project...</s:option>--%>
@@ -35,6 +49,13 @@
                     <td><s:errors field="request.dateOfRequest"/></td>
                 </tr>
                 <tr>
+                    <td><s:label for="request.reviewDate">:</s:label></td>
+                        <td>
+                        <s:text name="request.reviewDate" formatPattern="dd/MM/yyyy"/>
+                    </td>
+                    <td><s:errors field="request.reviewDate"/></td>
+                </tr>
+                <tr>
                     <td><s:label for="request.pointsWorth">:</s:label></td>
                     <td><s:text name="request.pointsWorth"/></td>
                     <td><s:errors field="request.pointsWorth"/></td>
@@ -49,9 +70,16 @@
                     <td><s:errors field="request.assignedPriority"/></td>
                 </tr>
                 <tr>
+                    <td><s:label for="request.status">:</s:label></td>
+                    <td><s:select name="request.status">
+                            <s:options-enumeration enum="documentify.model.Status" label="status"/>  
+                        </s:select>
+                    </td>
+                    <td><s:errors field="request.status"/></td>
+                </tr>
+                <tr>
                     <td><s:label for="request.requester">:</s:label></td>
                     <td><s:select name="request.requester">
-                            <%--<s:option value="">Select a project...</s:option>--%>
                             <s:options-collection collection="${users.users}" value="id" label="userName"/>   
                         </s:select>
                     </td>

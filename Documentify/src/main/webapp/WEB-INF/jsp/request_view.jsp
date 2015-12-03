@@ -14,13 +14,27 @@
                 <td class="value">${actionBean.request.id}</td>
             </tr>
             <tr>
+                <td><s:label for="request.requestTitle">:</s:label></td>
+                <td class="value">${actionBean.request.requestTitle}</td>
+            </tr>
+            <tr>
+                <td><s:label for="request.requestDesc">:</s:label></td>
+                <td class="value">${actionBean.request.requestDesc}</td>
+            </tr>
+            <tr>
                 <td><s:label for="request.project">:</s:label></td>
                 <td class="value">${actionBean.request.project}</td>
             </tr>
             <tr>
                 <td><s:label for="request.dateOfRequest">:</s:label></td>
-                <td class="value">
+                    <td class="value">
                     <s:format value="${actionBean.request.dateOfRequest}" formatPattern="dd/MM/yyyy"/>
+                </td>
+            </tr>
+            <tr>
+                <td><s:label for="request.reviewDate">:</s:label></td>
+                    <td class="value">
+                    <s:format value="${actionBean.request.reviewDate}" formatPattern="dd/MM/yyyy"/>
                 </td>
             </tr>
             <tr>
@@ -30,6 +44,10 @@
             <tr>
                 <td><s:label for="request.assignedPriority">:</s:label></td>
                 <td class="value">${actionBean.request.assignedPriority}</td>
+            </tr>
+            <tr>
+                <td><s:label for="request.status">:</s:label></td>
+                <td class="value">${actionBean.request.status}</td>
             </tr>
             <tr>
                 <td><s:label for="request.requester">:</s:label></td>

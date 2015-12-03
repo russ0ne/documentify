@@ -24,6 +24,12 @@ public class Request extends EntityBase {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateOfRequest;
     private int pointsWorth;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date reviewDate;
+    @Enumerated(EnumType.STRING)
+    private Status status;
+    private String requestTitle;
+    private String requestDesc;
 
 //Related section of project
   
@@ -78,6 +84,62 @@ public class Request extends EntityBase {
     @Override
     public String toString() {
         return "" + getId();
+    }
+
+    /**
+     * @return the reviewDate
+     */
+    public Date getReviewDate() {
+        return reviewDate;
+    }
+
+    /**
+     * @param reviewDate the reviewDate to set
+     */
+    public void setReviewDate(Date reviewDate) {
+        this.reviewDate = reviewDate;
+    }
+
+    /**
+     * @return the status
+     */
+    public Status getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the requestDesc
+     */
+    public String getRequestDesc() {
+        return requestDesc;
+    }
+
+    /**
+     * @param requestDesc the requestDesc to set
+     */
+    public void setRequestDesc(String requestDesc) {
+        this.requestDesc = requestDesc;
+    }
+
+    /**
+     * @return the requestTitle
+     */
+    public String getRequestTitle() {
+        return requestTitle;
+    }
+
+    /**
+     * @param requestTitle the requestTitle to set
+     */
+    public void setRequestTitle(String requestTitle) {
+        this.requestTitle = requestTitle;
     }
 
 }
