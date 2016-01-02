@@ -6,30 +6,32 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="taglibs.jsp" %>
+<%@include file="taglibs.jsp"%>
 <s:layout-definition>
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>${title}</title>
-            <link rel="stylesheet" type="text/css"
-                  href="${contextPath}/css/style.css">
-        </head>
-        <body>
-            <div id="header">
-                <div id="logo"><img src="images/documentify.png" alt="Documentify Logo" height="85.5" width="321.5"/></div><br />
-                <span class="title">${title}</span>
-                <span class="menu">
-                    <s:layout-component name="menu">
+	<!DOCTYPE html>
+	<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>${title}</title>
+<link rel="stylesheet" type="text/css"
+	href="${contextPath}/css/style.css">
+</head>
+<body>
+	<div id="header">
+		<div id="logo">
+			<img src="images/documentify.png" alt="Documentify Logo"
+				height="85.5" width="321.5" />
+		</div>
+		<br /> <span class="title">${title}</span> <span class="menu">
+			<s:layout-component name="menu">
                         Welcome to Documentify
                     </s:layout-component>
-                </span>
-            </div>
-            <s:messages/>
-            <div id="body">
-                <s:layout-component name="body"/>
-            </div>
-        </body>
-    </html>
+		</span>
+	</div>
+	<s:messages />
+	<div id="body">
+		<s:layout-component name="body" />
+	</div>
+</body>
+	</html>
 </s:layout-definition>
