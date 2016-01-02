@@ -63,6 +63,10 @@
                 <s:param name="request" value="${actionBean.request}"/>
                 Update
             </s:link> |
+            <s:link beanclass="documentify.action.SubmissionFormActionBean">
+            	<s:param name="request" value="${actionBean.request}"/>
+                Submit Documentation
+            </s:link> |
             <s:link beanclass="documentify.action.RequestListActionBean">
                 Back to List
             </s:link>

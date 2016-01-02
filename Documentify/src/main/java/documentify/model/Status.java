@@ -3,7 +3,13 @@ package documentify.model;
 public enum Status {
 
     OPEN("Open"),
-    CLOSED("Closed");
+    CLOSED("Closed"),
+    
+    ACCEPTED("Accepted"),
+    PENDING("Pending")
+    ;
+
+	
 
     private final String desc;
 
