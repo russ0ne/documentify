@@ -1,15 +1,13 @@
-Sample story
+Create a new request story
 
-# Narrative: In order to test the submission flow As a member of the open source project I want to create a request for documentation
+Narrative:
+In order to test the submission flow
+As a member of the open source project 
+I want to create a request for documentation
 
-
-#Scenario:  Creating request no. 1
-#Given a task of creating a new request
-#When a Title is Test_Request1, Description is 'Test_Desc', Request Date is '01/01/2014', Due Date is '01/01/2017', Points Avilable is '28', Priority is 'Low', Status is 'Open', Requested By 'Russ', Comments is 'Test_Comment'
-#Then a Requst the request with identical parameters can retreived. 
-
-
-
-Scenario:  Creating request no. 1
+Scenario:  Creating a new request
 Given a task of creating a new request
 Then a simple confirmation message is returned
+Then no validation errors will exist
+Then the user will be redirected to the correct URL
+Then the correct values will be saved in the database

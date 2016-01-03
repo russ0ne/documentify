@@ -21,6 +21,7 @@ import documentify.model.Project;
 import documentify.model.Request;
 import documentify.model.Status;
 import documentify.model.User;
+import java.util.Locale;
 import net.sourceforge.stripes.controller.DispatcherServlet;
 import net.sourceforge.stripes.controller.StripesFilter;
 import net.sourceforge.stripes.mock.MockHttpSession;
@@ -33,23 +34,13 @@ public class CreateRequestSteps extends JUnitStories {
 
     private static MockServletContext mockContext;
     private static MockHttpSession mockSession;
-
-    Request request;
-
-    //@When("a Title is Test_Request1, Description is 'Test_Desc', Request Date is '01/01/2014', Due Date is '01/01/2017', Points Avilable is '28', Priority is 'Low', Status is 'Open', Requested By 'Russ', Comments is 'Test_Comment'")
-    //public void whenATitleIsTest_Request1DescriptionIsTest_DescRequestDateIs01012014DueDateIs01012017PointsAvilableIs28PriorityIsLowStatusIsOpenRequestedByRussCommentsIsTest_Comment() {
-    //    System.out.println("Parsing request values");
-    //}
-
-    @Then("a simple confirmation message is returned")
-    public void thenASimpleConfirmationMessageIsReturned() {
-        System.out.println("Then!!");
-    }
-
+    private RequestFormActionBean bean;
+    private MockRoundtrip trip;
+    
     @Given("a task of creating a new request")
     public void givenATaskOfCreatingANewRequest() throws Exception {
         setup();
-        MockRoundtrip trip = new MockRoundtrip(mockContext, RequestFormActionBean.class, mockSession);
+        trip = new MockRoundtrip(mockContext, RequestFormActionBean.class, mockSession);
         trip.setParameter("request.id", "100");
         trip.setParameter("request.dateOfRequest", "01/01/2014");
         trip.setParameter("request.project", "Part-Time Hero's Project");
@@ -63,12 +54,26 @@ public class CreateRequestSteps extends JUnitStories {
         trip.setParameter("request.requestDesc", "No more info");
         trip.execute();
         
-        RequestFormActionBean bean = trip.getActionBean(RequestFormActionBean.class);
-        
-        //check there were no validation errors
+        bean = trip.getActionBean(RequestFormActionBean.class);
+    }
+
+    @Then("a simple confirmation message is returned")
+    public void thenASimpleConfirmationMessageIsReturned() {
+        assertEquals("Save message is incorrect", "Request 100 has been saved.", bean.getContext().getMessages().get(0).getMessage(Locale.getDefault()));
+    }
+    
+    @Then("no validation errors will exist")
+    public void thenNoValidationErrorsExist() {
         assertEquals("Validations should be 0", 0, bean.getContext().getValidationErrors().size());
-        
-        //check that the Request's variables are set correctly
+    }
+    
+    @Then("the user will be redirected to the correct URL")
+    public void thenTheUserIsRedirectedToTheCorrectUrl() {
+        assertTrue("The Resolution went to the wrong URL", trip.getDestination().startsWith("/RequestList.ction"));
+    }
+    
+    @Then("the correct values will be saved in the database")
+    public void thenTheCorrectValuesWillBeSavedInTheDatabase() {
         Request requestUnderTest = bean.getRequest();
         assertEquals("The Id should have been 100", "100", requestUnderTest.getId());
         assertEquals("The date of request should have been 01/01/2014", "01/01/2014", requestUnderTest.getDateOfRequest());
@@ -80,11 +85,9 @@ public class CreateRequestSteps extends JUnitStories {
         Project proj = requestUnderTest.getProject();
         assertEquals("The project name should have been \"Part-Time Hero\'s Project", "Part-Time Hero's Project", proj.getProjectName());
         Status status = requestUnderTest.getStatus();
-        assertEquals("The status of the request should be OPEN", "OPEN", requestUnderTest.getStatus());
+        assertEquals("The status of the request should be OPEN", "OPEN", status.getStatus());
         User requester = requestUnderTest.getRequester();
         assertEquals("The Requester\'s name should have been Russ", "Russ", requester.getUserName());
-        
-        assertTrue("The Resolution went to the wrong URL", trip.getDestination().startsWith("/RequestList.ction"));
     }
 
     @Override
