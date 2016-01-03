@@ -21,6 +21,11 @@
 			<name>ObjectDB Repository</name>
 			<url>http://m2.objectdb.com</url>
 		</repository>
+		 <repository>
+        	<id>com.uwl.student</id>
+        	<name>documentify</name>
+        <url>file:${basedir}/repo</url>
+    </repository>
 	</repositories>
 
 	<dependencies>
@@ -59,18 +64,18 @@
 		 	<artifactId>stripesstuff</artifactId> 
 			<version>0.4.1</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.stripesstuff.stripersist</groupId>
 			<artifactId>stripersist</artifactId>
 			<version>1.0.3</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/locallib/stripersist-1.0.3.jar</systemPath>
-		</dependency>
-<!-- 	<dependency>
+			<systemPath>${basedir}/repo/stripersist-1.0.3.jar</systemPath>
+		</dependency> -->
+	<dependency>
 			<groupId>org.stripesstuff.stripersist</groupId>
 			<artifactId>stripersist</artifactId>
 			<version>1.0.3</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>com.objectdb</groupId>
 			<artifactId>objectdb</artifactId>
@@ -250,11 +255,14 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
+	<testResources>
+		<testResource>
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.story</include>
+			</includes>
+		</testResource>
+	</testResources>
 		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
 	</build>

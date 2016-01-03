@@ -9,6 +9,7 @@ import org.jbehave.core.annotations.*;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.reporters.StoryReporterBuilder.Format;
@@ -17,11 +18,7 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.Test;
 
 import documentify.action.RequestFormActionBean;
-import documentify.model.Project;
 import documentify.model.Request;
-import documentify.model.Status;
-import documentify.model.User;
-import java.util.Locale;
 import net.sourceforge.stripes.controller.DispatcherServlet;
 import net.sourceforge.stripes.controller.StripesFilter;
 import net.sourceforge.stripes.mock.MockHttpSession;
@@ -78,10 +75,14 @@ public class CreateRequestTest extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-//        return Arrays.asList("steps/CreateRequest.story");
         return Arrays.asList("steps/CreateRequest.story");
     }
 
+//    protected List<String> storyPaths() {
+//        StoryFinder finder = new StoryFinder();
+//        return finder.findPaths(codeLocationFromClass(this.getClass()).getFile(), Arrays.asList("**/*.story"), Arrays.asList(""));
+//    }
+    
     @SuppressWarnings("deprecation")
     @Override
     public Configuration configuration() {
