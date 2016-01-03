@@ -72,16 +72,12 @@ public class CreateRequestTest extends JUnitStories {
         assertEquals("The description should have been \"No more info\"", "No more info", requestUnderTest.getRequestDesc());
     }
     
-
+    
     @Override
     protected List<String> storyPaths() {
         return Arrays.asList("steps/CreateRequest.story");
     }
 
-//    protected List<String> storyPaths() {
-//        StoryFinder finder = new StoryFinder();
-//        return finder.findPaths(codeLocationFromClass(this.getClass()).getFile(), Arrays.asList("**/*.story"), Arrays.asList(""));
-//    }
     
     @SuppressWarnings("deprecation")
     @Override

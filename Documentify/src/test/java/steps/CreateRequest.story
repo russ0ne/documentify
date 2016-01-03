@@ -1,7 +1,7 @@
 Create a new request story
 
 Narrative:
-In order to test the submission flow
+In order to test the request flow
 As a member of the open source project 
 I want to create a request for documentation
 
