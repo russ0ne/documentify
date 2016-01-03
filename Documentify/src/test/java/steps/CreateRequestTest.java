@@ -75,7 +75,8 @@ public class CreateRequestTest extends JUnitStories {
     
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("steps/CreateRequest.story");
+        return Arrays.asList("CreateRequest.story");
+//        return Arrays.asList("scr/test/resources/CreateRequest.story");
     }
 
     
