@@ -79,7 +79,7 @@ public class CreateRequestSteps extends JUnitStories {
         assertEquals("The number of points should have been 99", "99", requestUnderTest.getPointsWorth());
         assertEquals("The comments should have been \"New Request\"", "New Request", requestUnderTest.getComments());
         assertEquals("The review date should have been 15/01/2017", "15/01/2017", requestUnderTest.getReviewDate());
-        assertEquals("The title should hvae been \"New Request Title\"", "New Request Title", requestUnderTest.getRequestTitle());
+        assertEquals("The title should have been \"New Request Title\"", "New Request Title", requestUnderTest.getRequestTitle());
         assertEquals("The description should have been \"No more info\"", "No more info", requestUnderTest.getRequestDesc());
         Project proj = requestUnderTest.getProject();
         assertEquals("The project name should have been \"Part-Time Hero\'s Project", "Part-Time Hero's Project", proj.getProjectName());
