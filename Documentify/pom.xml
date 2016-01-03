@@ -54,16 +54,23 @@
 			<artifactId>stripes</artifactId>
 			<version>1.6.0</version>
 		</dependency>
-		<dependency>
+	 <dependency> 
 			<groupId>org.stripesstuff</groupId>
-			<artifactId>stripesstuff</artifactId>
+		 	<artifactId>stripesstuff</artifactId> 
 			<version>0.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.stripesstuff.stripersist</groupId>
 			<artifactId>stripersist</artifactId>
 			<version>1.0.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/locallib/stripersist-1.0.3.jar</systemPath>
 		</dependency>
+<!-- 	<dependency>
+			<groupId>org.stripesstuff.stripersist</groupId>
+			<artifactId>stripersist</artifactId>
+			<version>1.0.3</version>
+		</dependency> -->
 		<dependency>
 			<groupId>com.objectdb</groupId>
 			<artifactId>objectdb</artifactId>

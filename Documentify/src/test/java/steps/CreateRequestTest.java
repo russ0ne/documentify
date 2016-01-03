@@ -79,7 +79,7 @@ public class CreateRequestTest extends JUnitStories {
     @Override
     protected List<String> storyPaths() {
 //        return Arrays.asList("steps/CreateRequest.story");
-        return Arrays.asList("features/CreateRequest.story");
+        return Arrays.asList("steps/CreateRequest.story");
     }
 
     @SuppressWarnings("deprecation")
