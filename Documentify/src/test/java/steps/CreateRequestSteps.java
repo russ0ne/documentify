@@ -36,7 +36,7 @@ public class CreateRequestSteps extends JUnitStories {
     private static MockHttpSession mockSession;
     private RequestFormActionBean bean;
     private MockRoundtrip trip;
-    
+
     @Given("a task of creating a new request")
     public void givenATaskOfCreatingANewRequest() throws Exception {
         setup();
@@ -53,7 +53,6 @@ public class CreateRequestSteps extends JUnitStories {
         trip.setParameter("request.requestTitle", "New Request Title");
         trip.setParameter("request.requestDesc", "No more info");
         trip.execute();
-        
         bean = trip.getActionBean(RequestFormActionBean.class);
     }
 
@@ -61,17 +60,17 @@ public class CreateRequestSteps extends JUnitStories {
     public void thenASimpleConfirmationMessageIsReturned() {
         assertEquals("Save message is incorrect", "Request 100 has been saved.", bean.getContext().getMessages().get(0).getMessage(Locale.getDefault()));
     }
-    
+
     @Then("no validation errors will exist")
     public void thenNoValidationErrorsExist() {
         assertEquals("Validations should be 0", 0, bean.getContext().getValidationErrors().size());
     }
-    
+
     @Then("the user will be redirected to the correct URL")
     public void thenTheUserIsRedirectedToTheCorrectUrl() {
         assertTrue("The Resolution went to the wrong URL", trip.getDestination().startsWith("/RequestList.ction"));
     }
-    
+
     @Then("the correct values will be saved in the database")
     public void thenTheCorrectValuesWillBeSavedInTheDatabase() {
         Request requestUnderTest = bean.getRequest();
