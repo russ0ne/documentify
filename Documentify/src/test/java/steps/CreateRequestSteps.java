@@ -32,8 +32,8 @@ import static org.junit.Assert.assertTrue;
 
 public class CreateRequestSteps extends JUnitStories {
 
-    private static MockServletContext mockContext;
-    private static MockHttpSession mockSession;
+    private MockServletContext mockContext;
+    private MockHttpSession mockSession;
     private RequestFormActionBean bean;
     private MockRoundtrip trip;
 
