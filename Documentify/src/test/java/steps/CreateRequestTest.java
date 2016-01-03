@@ -30,7 +30,7 @@ import net.sourceforge.stripes.mock.MockServletContext;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CreateRequestSteps extends JUnitStories {
+public class CreateRequestTest extends JUnitStories {
 
     private MockServletContext mockContext;
     private MockHttpSession mockSession;
@@ -42,23 +42,15 @@ public class CreateRequestSteps extends JUnitStories {
         setup();
         trip = new MockRoundtrip(mockContext, RequestFormActionBean.class, mockSession);
         trip.setParameter("request.id", "100");
-        trip.setParameter("request.dateOfRequest", "01/01/2014");
-        trip.setParameter("request.project", "Part-Time Hero's Project");
+        trip.setParameter("request.dateOfRequest", "01-01-2014");
         trip.setParameter("request.pointsWorth", "99");
         trip.setParameter("request.comments", "New Request");
-        trip.setParameter("request.assignedPriority", "Low");
-        trip.setParameter("request.requester", "Russ");
-        trip.setParameter("request.reviewDate", "15/01/2017");
-        trip.setParameter("request.status", "OPEN");
+        trip.setParameter("request.assignedPriority", "LOW");
+        trip.setParameter("request.reviewDate", "01-01-2017");
         trip.setParameter("request.requestTitle", "New Request Title");
         trip.setParameter("request.requestDesc", "No more info");
-        trip.execute();
+        trip.execute("save");
         bean = trip.getActionBean(RequestFormActionBean.class);
-    }
-
-    @Then("a simple confirmation message is returned")
-    public void thenASimpleConfirmationMessageIsReturned() {
-        assertEquals("Save message is incorrect", "Request 100 has been saved.", bean.getContext().getMessages().get(0).getMessage(Locale.getDefault()));
     }
 
     @Then("no validation errors will exist")
@@ -68,30 +60,26 @@ public class CreateRequestSteps extends JUnitStories {
 
     @Then("the user will be redirected to the correct URL")
     public void thenTheUserIsRedirectedToTheCorrectUrl() {
-        assertTrue("The Resolution went to the wrong URL", trip.getDestination().startsWith("/RequestList.ction"));
+        assertTrue("The Resolution went to the wrong URL", trip.getDestination().startsWith("/RequestList.action"));
     }
 
     @Then("the correct values will be saved in the database")
     public void thenTheCorrectValuesWillBeSavedInTheDatabase() {
         Request requestUnderTest = bean.getRequest();
-        assertEquals("The Id should have been 100", "100", requestUnderTest.getId());
-        assertEquals("The date of request should have been 01/01/2014", "01/01/2014", requestUnderTest.getDateOfRequest());
-        assertEquals("The number of points should have been 99", "99", requestUnderTest.getPointsWorth());
+        assertEquals("The Id should have been 100", "100", requestUnderTest.getId().toString());
+        assertEquals("The date of request should have been 01/01/2014", "Wed Jan 01 00:00:00 GMT 2014", requestUnderTest.getDateOfRequest().toString());
+        assertEquals("The number of points should have been 99", "99", String.valueOf(requestUnderTest.getPointsWorth()));
         assertEquals("The comments should have been \"New Request\"", "New Request", requestUnderTest.getComments());
-        assertEquals("The review date should have been 15/01/2017", "15/01/2017", requestUnderTest.getReviewDate());
+        assertEquals("The review date should have been 15/01/2017", "Sun Jan 01 00:00:00 GMT 2017", requestUnderTest.getReviewDate().toString());
         assertEquals("The title should have been \"New Request Title\"", "New Request Title", requestUnderTest.getRequestTitle());
         assertEquals("The description should have been \"No more info\"", "No more info", requestUnderTest.getRequestDesc());
-        Project proj = requestUnderTest.getProject();
-        assertEquals("The project name should have been \"Part-Time Hero\'s Project", "Part-Time Hero's Project", proj.getProjectName());
-        Status status = requestUnderTest.getStatus();
-        assertEquals("The status of the request should be OPEN", "OPEN", status.getStatus());
-        User requester = requestUnderTest.getRequester();
-        assertEquals("The Requester\'s name should have been Russ", "Russ", requester.getUserName());
     }
+    
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("steps/CreateRequest.story");
+//        return Arrays.asList("steps/CreateRequest.story");
+        return Arrays.asList("features/CreateRequest.story");
     }
 
     @SuppressWarnings("deprecation")
